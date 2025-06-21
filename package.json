@@ -1,0 +1,19 @@
+{
+  "name": "com.rossogames.rossoforge-extensions",
+  "version": "1.0.0",
+  "displayName": "RossoForge-Extensions",
+  "description": "---",
+  "unity": "2025.0",
+  "author": {
+    "name": "Agustin Rosso",
+    "url": "https://www.linkedin.com/in/rossoagustin/"
+  },
+  "keywords": [
+    "",
+    "rossogames",
+    "rossoforge",
+    "extensions"
+  ],
+  "samples": [
+  ]
+}
