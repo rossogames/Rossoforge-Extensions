@@ -9,8 +9,8 @@ namespace RossoForge.Extensions
         /// </summary>
         public static bool IsBetween(
             this double value,
-            int min,
-            int max,
+            double min,
+            double max,
             bool inclusiveMin = true,
             bool inclusiveMax = true)
         {

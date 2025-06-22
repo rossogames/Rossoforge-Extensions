@@ -49,14 +49,6 @@ namespace RossoForge.Extensions
         }
 
         /// <summary>
-        /// Returns true if the value is within the specified range (inclusive).
-        /// </summary>
-        public static bool IsInRange(this float value, float min, float max)
-        {
-            return value >= min && value <= max;
-        }
-
-        /// <summary>
         /// Converts the float to the nearest integer using rounding.
         /// </summary>
         public static int ToRoundedInt(this float value)
