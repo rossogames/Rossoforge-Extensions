@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace RossoForge.Extensions
 {
@@ -81,6 +82,47 @@ namespace RossoForge.Extensions
                 return value;
 
             return (float)Math.Round(value / gridSize) * gridSize;
+        }
+
+        /// <summary>
+        /// Converts to radians.
+        /// </summary>
+        /// <param name="degrees">The angle in degrees to convert.</param>
+        public static float ToRadians(this float degrees)
+        {
+            return degrees * Mathf.Deg2Rad;
+        }
+
+        /// <summary>
+        /// Converts to degrees.
+        /// </summary>
+        /// <param name="radians">The angle in radians to convert.</param>
+        public static float ToDegrees(this float radians)
+        {
+            return radians * Mathf.Rad2Deg;
+        }
+
+        /// <summary>
+        /// Converts the value to a percentage string with optional precision (e.g., 0.75 -> "75%").
+        /// </summary>
+        /// <param name="value">The value to convert.</param>
+        /// <param name="decimals">The number of decimal places to include in the percentage string (default: 0).</param>
+        public static string ToPercentageString(this float value, int decimals = 0)
+        {
+            return (value * 100).ToString($"F{decimals}") + "%";
+        }
+
+        /// <summary>
+        /// Rounds the number to the nearest multiple of a given step (e.g., 0.05, 0.1).
+        /// </summary>
+        /// <param name="value">The double value to round.</param>
+        /// <param name="step">The step size to round to.</param>
+        public static float RoundToNearest(this float value, float step)
+        {
+            if (step == 0)
+                return value;
+
+            return Mathf.Round(value / step) * step;
         }
     }
 }
