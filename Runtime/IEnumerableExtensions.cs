@@ -21,6 +21,7 @@ namespace RossoForge.Extensions
                 .Select(x => x.Select(v => v.Value).ToList())
                 .ToList();
         }
+
         /// <summary>
         /// split the list in small pieces
         /// </summary>
@@ -64,7 +65,7 @@ namespace RossoForge.Extensions
         /// </summary>
         public static bool IsEmpty<T>(this IEnumerable<T> source)
         {
-            return !source.Any();
+            return source.Count() == 0;
         }
 
         /// <summary>
@@ -72,15 +73,19 @@ namespace RossoForge.Extensions
         /// </summary>
         public static bool IsNotEmpty<T>(this IEnumerable<T> source)
         {
-            return source.Any();
+            return source.Count() > 0;
         }
 
         /// <summary>
         /// Returns all non-null elements from a collection of reference types.
         /// </summary>
-        public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T?> source) where T : class
+        public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T> source) where T : class
         {
-            return source.Where(x => x != null)!;
+            foreach (var item in source)
+            {
+                if (item != null)
+                    yield return item;
+            }
         }
 
         /// <summary>
@@ -88,13 +93,17 @@ namespace RossoForge.Extensions
         /// </summary>
         public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T?> source) where T : struct
         {
-            return source.Where(x => x.HasValue).Select(x => x!.Value);
+            foreach (var item in source)
+            {
+                if (item.HasValue)
+                    yield return item.Value;
+            }
         }
 
         /// <summary>
-        /// Returns a new enumerable with the elements in random order using Fisher–Yates shuffle.
+        /// Returns a list with the elements in random order using Fisher–Yates shuffle.
         /// </summary>
-        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source, Random? rng = null)
+        public static List<T> Shuffle<T>(this IEnumerable<T> source, Random? rng = null)
         {
             rng ??= new Random();
             var buffer = source.ToList();
@@ -112,12 +121,28 @@ namespace RossoForge.Extensions
         /// </summary>
         public static T RandomElement<T>(this IEnumerable<T> source, Random? rng = null)
         {
-            var list = source.ToList();
-            if (list.Count == 0)
-                throw new InvalidOperationException("Cannot select a random element from an empty sequence.");
-
             rng ??= new Random();
-            return list[rng.Next(list.Count)];
+
+            if (source is IList<T> list)
+            {
+                if (list.Count == 0)
+                    throw new InvalidOperationException("Cannot select a random element from an empty sequence.");
+                return list[rng.Next(list.Count)];
+            }
+
+            // Support IReadOnlyList<T> (like ImmutableList<T>)
+            if (source is IReadOnlyList<T> readOnlyList)
+            {
+                if (readOnlyList.Count == 0)
+                    throw new InvalidOperationException("Cannot select a random element from an empty sequence.");
+                return readOnlyList[rng.Next(readOnlyList.Count)];
+            }
+
+            // Fallback
+            var array = source.ToArray();
+            if (array.Length == 0)
+                throw new InvalidOperationException("Cannot select a random element from an empty sequence.");
+            return array[rng.Next(array.Length)];
         }
     }
 }
