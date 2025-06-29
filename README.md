@@ -2,12 +2,12 @@
 
 <table>
   <tr>
-    <td><img src="https://github.com/rossogames/Rossoforge-Extensions/blob/master/logo.png?raw=true" alt="RossoForge" width="64"/></td>
+    <td><img src="https://github.com/rossogames/Rossoforge-Extensions/blob/main/logo.png?raw=true" alt="RossoForge" width="64"/></td>
     <td><h2>RossoForge - Extensions</h2></td>
   </tr>
 </table>
 
-**RossoForge - Extensions** A small C# extension method library for Unity that helps you write cleaner, more efficient code..
+**RossoForge - Extensions** A small C# extension method library for Unity that helps you write cleaner, more efficient code.
 
 #
 This package is part of the **RossoForge** suite, designed to streamline and enhance Unity development workflows.
