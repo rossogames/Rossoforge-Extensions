@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RossoGames.SDK.Extensions.Unity
+namespace RossoForge.Extensions
 {
     public static class RectTransformExtensions
     {
@@ -68,6 +68,22 @@ namespace RossoGames.SDK.Extensions.Unity
             rt.anchorMax = new Vector2(anchorMaxX, anchorMaxY);
             rt.pivot = new Vector2(pivotX, pivotY);
         }
+    }
+
+    public enum RectTransformAnchorHorizontal
+    {
+        LEFT,
+        CENTER,
+        RIGHT,
+        STRETCH
+    }
+
+    public enum RectTransformAnchorVertical
+    {
+        TOP,
+        MIDDLE,
+        BOTTOM,
+        STRETCH
     }
 }
 
