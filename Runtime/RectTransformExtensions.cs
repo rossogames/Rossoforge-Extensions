@@ -28,62 +28,85 @@ namespace RossoForge.Extensions
 
         public static void SetAnchor(this RectTransform rt, RectTransformAnchorHorizontal anchorHorizontal, RectTransformAnchorVertical anchorVertical)
         {
-            float anchorMinX =
-                anchorHorizontal == RectTransformAnchorHorizontal.LEFT ? 0 :
-                anchorHorizontal == RectTransformAnchorHorizontal.CENTER ? 0.5f :
-                anchorHorizontal == RectTransformAnchorHorizontal.RIGHT ? 1 :
-                0;
+            float anchorMinX, anchorMaxX, pivotX;
+            float anchorMinY, anchorMaxY, pivotY;
 
-            float anchorMinY =
-                anchorVertical == RectTransformAnchorVertical.TOP ? 1 :
-                anchorVertical == RectTransformAnchorVertical.MIDDLE ? 0.5f :
-                anchorVertical == RectTransformAnchorVertical.BOTTOM ? 0 :
-                0;
+            // Horizontal
+            switch (anchorHorizontal)
+            {
+                case RectTransformAnchorHorizontal.LEFT:
+                    anchorMinX = 0f;
+                    anchorMaxX = 0f;
+                    pivotX = 0f;
+                    break;
+                case RectTransformAnchorHorizontal.CENTER:
+                    anchorMinX = 0.5f;
+                    anchorMaxX = 0.5f;
+                    pivotX = 0.5f;
+                    break;
+                case RectTransformAnchorHorizontal.RIGHT:
+                    anchorMinX = 1f;
+                    anchorMaxX = 1f;
+                    pivotX = 1f;
+                    break;
+                case RectTransformAnchorHorizontal.STRETCH:
+                    anchorMinX = 0f;
+                    anchorMaxX = 1f;
+                    pivotX = 0.5f;
+                    break;
+                default:
+                    anchorMinX = anchorMaxX = pivotX = 0.5f;
+                    break;
+            }
 
-            float anchorMaxX =
-                anchorHorizontal == RectTransformAnchorHorizontal.LEFT ? 0 :
-                anchorHorizontal == RectTransformAnchorHorizontal.CENTER ? 0.5f :
-                anchorHorizontal == RectTransformAnchorHorizontal.RIGHT ? 1 :
-                1;
-
-            float anchorMaxY =
-                anchorVertical == RectTransformAnchorVertical.TOP ? 1 :
-                anchorVertical == RectTransformAnchorVertical.MIDDLE ? 0.5f :
-                anchorVertical == RectTransformAnchorVertical.BOTTOM ? 0 :
-                1;
-
-            float pivotX =
-                anchorHorizontal == RectTransformAnchorHorizontal.LEFT ? 0 :
-                anchorHorizontal == RectTransformAnchorHorizontal.CENTER ? 0.5f :
-                anchorHorizontal == RectTransformAnchorHorizontal.RIGHT ? 1 :
-                0.5f;
-
-            float pivotY =
-                anchorVertical == RectTransformAnchorVertical.TOP ? 1 :
-                anchorVertical == RectTransformAnchorVertical.MIDDLE ? 0.5f :
-                anchorVertical == RectTransformAnchorVertical.BOTTOM ? 0 :
-                0.5f;
+            // Vertical
+            switch (anchorVertical)
+            {
+                case RectTransformAnchorVertical.BOTTOM:
+                    anchorMinY = 0f;
+                    anchorMaxY = 0f;
+                    pivotY = 0f;
+                    break;
+                case RectTransformAnchorVertical.MIDDLE:
+                    anchorMinY = 0.5f;
+                    anchorMaxY = 0.5f;
+                    pivotY = 0.5f;
+                    break;
+                case RectTransformAnchorVertical.TOP:
+                    anchorMinY = 1f;
+                    anchorMaxY = 1f;
+                    pivotY = 1f;
+                    break;
+                case RectTransformAnchorVertical.STRETCH:
+                    anchorMinY = 0f;
+                    anchorMaxY = 1f;
+                    pivotY = 0.5f;
+                    break;
+                default:
+                    anchorMinY = anchorMaxY = pivotY = 0.5f;
+                    break;
+            }
 
             rt.anchorMin = new Vector2(anchorMinX, anchorMinY);
             rt.anchorMax = new Vector2(anchorMaxX, anchorMaxY);
             rt.pivot = new Vector2(pivotX, pivotY);
         }
-    }
 
-    public enum RectTransformAnchorHorizontal
-    {
-        LEFT,
-        CENTER,
-        RIGHT,
-        STRETCH
-    }
+        public enum RectTransformAnchorHorizontal
+        {
+            LEFT,
+            CENTER,
+            RIGHT,
+            STRETCH
+        }
 
-    public enum RectTransformAnchorVertical
-    {
-        TOP,
-        MIDDLE,
-        BOTTOM,
-        STRETCH
+        public enum RectTransformAnchorVertical
+        {
+            TOP,
+            MIDDLE,
+            BOTTOM,
+            STRETCH
+        }
     }
 }
 
