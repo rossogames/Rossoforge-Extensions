@@ -1,7 +1,9 @@
 {
     "name": "Rossoforge.Extensions.Tests",
     "rootNamespace": "Rossoforge.Extensions.Tests",
-    "references": [],
+    "references": [
+        "Rossoforge.Extensions"
+    ],
     "includePlatforms": [
         "Editor"
     ],
