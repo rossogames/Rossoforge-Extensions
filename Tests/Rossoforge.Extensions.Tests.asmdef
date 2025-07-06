@@ -1,8 +1,10 @@
 {
-    "name": "Rossoforge.Extensions",
-    "rootNamespace": "Rossoforge.Extensions",
+    "name": "Rossoforge.Extensions.Tests",
+    "rootNamespace": "Rossoforge.Extensions.Tests",
     "references": [],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

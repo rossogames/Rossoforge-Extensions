@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace RossoForge.Extensions
+namespace Rossoforge.Extensions
 {
     public static class FloatExtensions
     {
@@ -78,7 +78,7 @@ namespace RossoForge.Extensions
         /// </summary>
         public static float SnapToGrid(this float value, float gridSize)
         {
-            if (gridSize == 0f) 
+            if (gridSize == 0f)
                 return value;
 
             return (float)Math.Round(value / gridSize) * gridSize;

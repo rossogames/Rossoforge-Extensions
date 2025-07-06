@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RossoForge.Extensions
+namespace Rossoforge.Extensions
 {
     public static class DoubleExtensions
     {

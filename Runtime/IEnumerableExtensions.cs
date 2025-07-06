@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RossoForge.Extensions
+namespace Rossoforge.Extensions
 {
     public static class IEnumerableExtensions
     {
@@ -15,7 +15,7 @@ namespace RossoForge.Extensions
         /// <returns></returns>
         public static List<List<T>> ChunkToList<T>(this IEnumerable<T> source, int chunkSize)
         {
-            if (chunkSize <= 0) 
+            if (chunkSize <= 0)
                 throw new ArgumentOutOfRangeException(nameof(chunkSize), "Chunk size must be greater than zero.");
 
             var result = new List<List<T>>();

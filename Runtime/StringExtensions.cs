@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace RossoForge.Extensions
+namespace Rossoforge.Extensions
 {
     public static class StringExtensions
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace RossoForge.Extensions
+namespace Rossoforge.Extensions
 {
     public static class IntExtensions
     {
@@ -54,18 +54,18 @@ namespace RossoForge.Extensions
             if (number < 1 || number > 3999) return number.ToString();
 
             var map = new[] {
-                (1000, "M"), 
-                (900, "CM"), 
-                (500, "D"), 
+                (1000, "M"),
+                (900, "CM"),
+                (500, "D"),
                 (400, "CD"),
-                (100, "C"), 
-                (90, "XC"), 
-                (50, "L"), 
+                (100, "C"),
+                (90, "XC"),
+                (50, "L"),
                 (40, "XL"),
-                (10, "X"), 
-                (9, "IX"), 
-                (5, "V"), 
-                (4, "IV"), 
+                (10, "X"),
+                (9, "IX"),
+                (5, "V"),
+                (4, "IV"),
                 (1, "I")
             };
 

@@ -1,7 +1,7 @@
 {
   "name": "com.rossogames.rossoforge-extensions",
   "version": "1.0.0",
-  "displayName": "RossoForge-Extensions",
+  "displayName": "Rossoforge-Extensions",
   "description": "Commonly used extension methods",
   "unity": "2025.0",
   "author": {
