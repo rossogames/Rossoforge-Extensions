@@ -78,8 +78,8 @@ namespace Rossoforge.Extensions
         /// </summary>
         public static float SnapToGrid(this float value, float gridSize)
         {
-            if (gridSize == 0f)
-                return value;
+            if (gridSize <= 0)
+                throw new ArgumentException(nameof(gridSize), "GridSize must be greater than zero.");
 
             return (float)Math.Round(value / gridSize) * gridSize;
         }
@@ -119,8 +119,8 @@ namespace Rossoforge.Extensions
         /// <param name="step">The step size to round to.</param>
         public static float RoundToNearest(this float value, float step)
         {
-            if (step == 0)
-                return value;
+            if (step <= 0)
+                throw new ArgumentException(nameof(step), "Step must be greater than zero.");
 
             return Mathf.Round(value / step) * step;
         }

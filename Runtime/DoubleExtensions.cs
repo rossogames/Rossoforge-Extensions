@@ -59,7 +59,7 @@ namespace Rossoforge.Extensions
         public static double RoundToNearest(this double value, double step)
         {
             if (step <= 0)
-                throw new ArgumentOutOfRangeException(nameof(step), "Step must be greater than zero.");
+                throw new ArgumentException(nameof(step), "Step must be greater than zero.");
 
             return Math.Round(value / step) * step;
         }

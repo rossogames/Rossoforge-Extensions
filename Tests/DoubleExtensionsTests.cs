@@ -74,10 +74,10 @@ namespace Rossoforge.Extensions.Tests
         [TestCase(0)]
         [TestCase(-0.01)]
         [TestCase(-1)]
-        public void RoundToNearest_ThrowsArgumentOutOfRangeException(double step)
+        public void RoundToNearest_ThrowsArgumentException(double step)
         {
             double value = 1.23;
-            Assert.Throws<ArgumentOutOfRangeException>(() => value.RoundToNearest(step));
+            Assert.Throws<ArgumentException>(() => value.RoundToNearest(step));
         }
 
         [Test]
