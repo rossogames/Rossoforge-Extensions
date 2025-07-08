@@ -3,6 +3,7 @@ using System;
 
 namespace Rossoforge.Extensions.Tests
 {
+    [TestFixture]
     public class DoubleExtensionsTests
     {
         [Test]

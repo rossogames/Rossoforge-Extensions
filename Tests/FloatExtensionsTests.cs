@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Rossoforge.Extensions.Tests
 {
+    [TestFixture]
     public class FloatExtensionsTests
     {
         [Test]
