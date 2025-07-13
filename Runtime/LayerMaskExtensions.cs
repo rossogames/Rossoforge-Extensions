@@ -14,7 +14,6 @@ namespace Rossoforge.Extensions
             return (layerMask & (1 << layer)) != 0;
         }
 
-
         /// <summary>
         /// Returns a new LayerMask that includes the original layers plus the given layer.
         /// </summary>
