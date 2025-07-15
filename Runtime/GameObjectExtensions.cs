@@ -50,7 +50,10 @@ namespace Rossoforge.Extensions
             foreach (Transform child in go.transform)
             {
 #if UNITY_EDITOR
-                Object.DestroyImmediate(child.gameObject);
+                if (!Application.isPlaying)
+                    Object.DestroyImmediate(child.gameObject);
+                else
+                    Object.Destroy(child.gameObject);
 #else
                 Object.Destroy(child.gameObject);
 #endif

@@ -26,10 +26,14 @@ namespace Rossoforge.Extensions
         public static void DestroySelf(this MonoBehaviour mb)
         {
 #if UNITY_EDITOR
-            Object.DestroyImmediate(mb.gameObject);
+            if (!Application.isPlaying)
+                Object.DestroyImmediate(mb.gameObject);
+            else
+                Object.Destroy(mb.gameObject);
 #else
             Object.Destroy(mb.gameObject);
 #endif
+
         }
 
         /// <summary>

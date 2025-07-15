@@ -291,13 +291,9 @@ namespace Rossoforge.Extensions
                 var obj = t.GetChild(i).gameObject;
 #if UNITY_EDITOR
                 if (!Application.isPlaying)
-                {
                     Object.DestroyImmediate(obj);
-                }
                 else
-                {
                     Object.Destroy(obj);
-                }
 #else
                 Object.Destroy(obj);
 #endif
