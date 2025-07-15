@@ -116,7 +116,7 @@ namespace Rossoforge.Extensions
         /// Checks if the string contains only digits.
         /// </summary>
         /// <param name="str">The string to check.</param>
-        public static bool IsNumeric(this string str)
+        public static bool AreAllDigits(this string str)
         {
             return !string.IsNullOrEmpty(str) && str.All(char.IsDigit);
         }
