@@ -34,22 +34,22 @@ namespace Rossoforge.Extensions
             // Horizontal
             switch (anchorHorizontal)
             {
-                case RectTransformAnchorHorizontal.LEFT:
+                case RectTransformAnchorHorizontal.Left:
                     anchorMinX = 0f;
                     anchorMaxX = 0f;
                     pivotX = 0f;
                     break;
-                case RectTransformAnchorHorizontal.CENTER:
+                case RectTransformAnchorHorizontal.Center:
                     anchorMinX = 0.5f;
                     anchorMaxX = 0.5f;
                     pivotX = 0.5f;
                     break;
-                case RectTransformAnchorHorizontal.RIGHT:
+                case RectTransformAnchorHorizontal.Right:
                     anchorMinX = 1f;
                     anchorMaxX = 1f;
                     pivotX = 1f;
                     break;
-                case RectTransformAnchorHorizontal.STRETCH:
+                case RectTransformAnchorHorizontal.Stretch:
                     anchorMinX = 0f;
                     anchorMaxX = 1f;
                     pivotX = 0.5f;
@@ -62,22 +62,22 @@ namespace Rossoforge.Extensions
             // Vertical
             switch (anchorVertical)
             {
-                case RectTransformAnchorVertical.BOTTOM:
+                case RectTransformAnchorVertical.Bottom:
                     anchorMinY = 0f;
                     anchorMaxY = 0f;
                     pivotY = 0f;
                     break;
-                case RectTransformAnchorVertical.MIDDLE:
+                case RectTransformAnchorVertical.Middle:
                     anchorMinY = 0.5f;
                     anchorMaxY = 0.5f;
                     pivotY = 0.5f;
                     break;
-                case RectTransformAnchorVertical.TOP:
+                case RectTransformAnchorVertical.Top:
                     anchorMinY = 1f;
                     anchorMaxY = 1f;
                     pivotY = 1f;
                     break;
-                case RectTransformAnchorVertical.STRETCH:
+                case RectTransformAnchorVertical.Stretch:
                     anchorMinY = 0f;
                     anchorMaxY = 1f;
                     pivotY = 0.5f;
@@ -94,18 +94,18 @@ namespace Rossoforge.Extensions
 
         public enum RectTransformAnchorHorizontal
         {
-            LEFT,
-            CENTER,
-            RIGHT,
-            STRETCH
+            Left,
+            Center,
+            Right,
+            Stretch
         }
 
         public enum RectTransformAnchorVertical
         {
-            TOP,
-            MIDDLE,
-            BOTTOM,
-            STRETCH
+            Top,
+            Middle,
+            Bottom,
+            Stretch
         }
     }
 }
