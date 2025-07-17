@@ -34,7 +34,13 @@ namespace Rossoforge.Extensions
               (sin * v.x) + (cos * v.y)
           );
         }
-
+        /// <summary>
+        /// Rotate de vector around pivot
+        /// </summary>
+        /// <param name="v">current vector</param>
+        /// <param name="pivot">rotation pivot</param>
+        /// <param name="degrees">degrees to rotate</param>
+        /// <returns></returns>
         public static Vector2 RotateAround(this Vector2 v, Vector2 pivot, float degrees)
         {
             return (v - pivot).Rotate(degrees) + pivot;
@@ -45,25 +51,12 @@ namespace Rossoforge.Extensions
         /// <param name="v">current vector</param>
         /// <param name="scale">scale to apply</param>
         /// <returns></returns>
-        public static void Scale(this Vector2 v, float scale)
+        public static Vector2 Scale(this Vector2 v, float scale)
         {
-            v.x *= scale;
-            v.y *= scale;
+            return new Vector2(v.x * scale, v.y * scale);
         }
-
         /// <summary>
-        /// Apply a scale to the vector
-        /// </summary>
-        /// <param name="v">current vector</param>
-        /// <param name="scale">scale to apply</param>
-        /// <returns></returns>
-        public static void Scale(this Vector2 v, Vector2 scale)
-        {
-            v.x *= scale.x;
-            v.y *= scale.y;
-        }
-
-        /// <summary>
+        /// Distance between the current vector and the target verctor
         /// </summary>
         /// <param name="v">current vector</param>
         /// <param name="target">Target vector</param>
@@ -72,7 +65,6 @@ namespace Rossoforge.Extensions
         {
             return Vector2.Distance(v, target);
         }
-
         /// <summary>
         ///The unsigned angle in degrees between the two vectors.
         /// </summary>
@@ -83,9 +75,8 @@ namespace Rossoforge.Extensions
         {
             return Vector2.SqrMagnitude(v - target);
         }
-
         /// <summary>
-        /// 
+        /// Angle in degrees between the two vectors
         /// </summary>
         /// <param name="v">current vector</param>
         /// <param name="target">The vector to which the angular difference is measured.</param>
@@ -94,7 +85,6 @@ namespace Rossoforge.Extensions
         {
             return Vector2.Angle(v, target);
         }
-
         /// <summary>
         /// Dot Product of two vectors.
         /// </summary>
@@ -105,7 +95,6 @@ namespace Rossoforge.Extensions
         {
             return Vector2.Dot(v, target);
         }
-
         /// <summary>
         /// Computes the 2D cross product (also known as the perp-dot product) between this vector and the target vector.
         /// This returns a scalar value equal to (v.x * target.y) - (v.y * target.x).
@@ -119,7 +108,6 @@ namespace Rossoforge.Extensions
         {
             return (v.x * target.y) - (v.y * target.x);
         }
-
         /// <summary>
         /// Returns a copy of this vector with the X component replaced by the specified value.
         /// </summary>
@@ -130,7 +118,6 @@ namespace Rossoforge.Extensions
         {
             return new Vector2(x, v.y);
         }
-
         /// <summary>
         /// Returns a copy of this vector with the Y component replaced by the specified value.
         /// </summary>
@@ -141,7 +128,6 @@ namespace Rossoforge.Extensions
         {
             return new Vector2(v.x, y);
         }
-
         /// <summary>
         /// Returns the projection of this vector onto the target vector.
         /// </summary>
@@ -152,7 +138,6 @@ namespace Rossoforge.Extensions
         {
             return Vector2.Dot(v, target) / target.sqrMagnitude * target;
         }
-
         /// <summary>
         /// Returns the reflection of this vector off the plane defined by the given normal.
         /// </summary>
@@ -163,7 +148,6 @@ namespace Rossoforge.Extensions
         {
             return v - 2 * Vector2.Dot(v, normal) * normal;
         }
-
         /// <summary>
         /// Converts this Vector2 to a Vector3 with the specified Z component.
         /// </summary>

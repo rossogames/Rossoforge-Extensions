@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Threading.Tasks;
 
-namespace Rossoforge.Extensions
+namespace Rossoforge.Extensions.Tests
 {
     public static class TaskExtentions
     {
