@@ -41,14 +41,6 @@ namespace Rossoforge.Extensions
         }
 
         /// <summary>
-        /// Scales this vector component-wise by another vector.
-        /// </summary>
-        public static Vector3 Scale(this Vector3 v, Vector3 scale)
-        {
-            return Vector3.Scale(v, scale);
-        }
-
-        /// <summary>
         /// Returns the distance between this vector and the target vector.
         /// </summary>
         public static float Distance(this Vector3 v, Vector3 target)
