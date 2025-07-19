@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace RossoForge.Extensions
+namespace Rossoforge.Extensions
 {
     public static class GameObjectExtensions
     {
@@ -10,7 +10,11 @@ namespace RossoForge.Extensions
         /// </summary>
         public static T GetOrAddComponent<T>(this GameObject gameObject) where T : Component
         {
-            return gameObject.GetComponent<T>() ?? gameObject.AddComponent<T>();
+            var component = gameObject.GetComponent<T>();
+            if (component != null)
+                return component;
+
+            return gameObject.AddComponent<T>();
         }
 
         /// <summary>
@@ -45,7 +49,14 @@ namespace RossoForge.Extensions
         {
             foreach (Transform child in go.transform)
             {
+#if UNITY_EDITOR
+                if (!Application.isPlaying)
+                    Object.DestroyImmediate(child.gameObject);
+                else
+                    Object.Destroy(child.gameObject);
+#else
                 Object.Destroy(child.gameObject);
+#endif
             }
         }
 

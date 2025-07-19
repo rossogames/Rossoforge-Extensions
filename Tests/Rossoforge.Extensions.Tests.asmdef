@@ -1,8 +1,12 @@
 {
-    "name": "RossoForge.Extensions",
-    "rootNamespace": "RossoForge.Extensions",
-    "references": [],
-    "includePlatforms": [],
+    "name": "Rossoforge.Extensions.Tests",
+    "rootNamespace": "Rossoforge.Extensions.Tests",
+    "references": [
+        "Rossoforge.Extensions"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

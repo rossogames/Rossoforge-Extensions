@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RossoForge.Extensions
+namespace Rossoforge.Extensions
 {
     public static class LayerMaskExtensions
     {
@@ -13,7 +13,6 @@ namespace RossoForge.Extensions
         {
             return (layerMask & (1 << layer)) != 0;
         }
-
 
         /// <summary>
         /// Returns a new LayerMask that includes the original layers plus the given layer.

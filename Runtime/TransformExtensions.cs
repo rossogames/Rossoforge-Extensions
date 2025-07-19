@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RossoForge.Extensions
+namespace Rossoforge.Extensions
 {
     public static class TransformExtensions
     {
@@ -44,6 +44,7 @@ namespace RossoForge.Extensions
             t.position = Vector3.zero;
         }
 
+        // LOCAL SCALE
         /// LOCAL SCALE
         /// <summary>
         /// Sets the local X scale of the Transform.
@@ -84,7 +85,6 @@ namespace RossoForge.Extensions
         }
 
         // LOCAL POSITION
-
         /// <summary>
         /// Sets the X component of the local position.
         /// </summary>
@@ -124,7 +124,6 @@ namespace RossoForge.Extensions
         }
 
         // ROTATION
-
         /// <summary>
         /// Sets the rotation's X component in global Euler angles.
         /// </summary>
@@ -188,7 +187,6 @@ namespace RossoForge.Extensions
         }
 
         // LOCAL ROTATION
-
         /// <summary>
         /// Sets the local rotation's X component in Euler angles.
         /// </summary>
@@ -290,7 +288,15 @@ namespace RossoForge.Extensions
         {
             for (int i = t.childCount - 1; i >= 0; i--)
             {
-                Object.Destroy(t.GetChild(i).gameObject);
+                var obj = t.GetChild(i).gameObject;
+#if UNITY_EDITOR
+                if (!Application.isPlaying)
+                    Object.DestroyImmediate(obj);
+                else
+                    Object.Destroy(obj);
+#else
+                Object.Destroy(obj);
+#endif
             }
         }
 

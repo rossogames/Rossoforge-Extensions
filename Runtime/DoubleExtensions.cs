@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RossoForge.Extensions
+namespace Rossoforge.Extensions
 {
     public static class DoubleExtensions
     {
@@ -58,8 +58,8 @@ namespace RossoForge.Extensions
         /// <param name="step">The step size to round to.</param>
         public static double RoundToNearest(this double value, double step)
         {
-            if (step == 0)
-                return value;
+            if (step <= 0)
+                throw new ArgumentException(nameof(step), "Step must be greater than zero.");
 
             return Math.Round(value / step) * step;
         }

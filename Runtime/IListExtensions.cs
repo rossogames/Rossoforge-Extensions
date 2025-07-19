@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RossoForge.Extensions
+namespace Rossoforge.Extensions
 {
     public static class IListExtensions
     {

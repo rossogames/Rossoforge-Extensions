@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RossoForge.Extensions
+namespace Rossoforge.Extensions
 {
     public static class MonoBehaviourExtensions
     {
@@ -25,7 +25,15 @@ namespace RossoForge.Extensions
         /// </summary>
         public static void DestroySelf(this MonoBehaviour mb)
         {
+#if UNITY_EDITOR
+            if (!Application.isPlaying)
+                Object.DestroyImmediate(mb.gameObject);
+            else
+                Object.Destroy(mb.gameObject);
+#else
             Object.Destroy(mb.gameObject);
+#endif
+
         }
 
         /// <summary>

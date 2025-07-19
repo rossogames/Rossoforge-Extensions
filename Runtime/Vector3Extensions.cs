@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace RossoForge.Extensions
+namespace Rossoforge.Extensions
 {
     public static class Vector3Extensions
     {
@@ -38,14 +38,6 @@ namespace RossoForge.Extensions
         public static Vector3 Scale(this Vector3 v, float scale)
         {
             return v * scale;
-        }
-
-        /// <summary>
-        /// Scales this vector component-wise by another vector.
-        /// </summary>
-        public static Vector3 Scale(this Vector3 v, Vector3 scale)
-        {
-            return Vector3.Scale(v, scale);
         }
 
         /// <summary>
