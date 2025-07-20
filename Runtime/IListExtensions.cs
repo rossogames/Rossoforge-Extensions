@@ -8,7 +8,7 @@ namespace Rossoforge.Extensions
         /// <summary>
         /// shuffle the list using Fisher–Yates method.
         /// </summary>
-        public static void ShuffleInPlace<T>(this IList<T> list, Random? rng = null)
+        public static void ShuffleInPlace<T>(this IList<T> list, Random rng = null)
         {
             rng ??= new Random();
             for (int i = list.Count - 1; i > 0; i--)
