@@ -49,6 +49,17 @@ namespace Rossoforge.Extensions
         }
 
         /// <summary>
+        /// Returns the normalized direction vector from this vector to the target vector.
+        /// </summary>
+        /// <param name="input">Input vecto</param>
+        /// <param name="target">Target vector</param>
+        /// <returns></returns>
+        public static Vector3 Direction(this Vector3 input, Vector3 target)
+        {
+            return (target - input).normalized;
+        }
+
+        /// <summary>
         /// Returns the squared distance between this vector and the target vector.
         /// </summary>
         public static float SqrDistance(this Vector3 v, Vector3 target)
