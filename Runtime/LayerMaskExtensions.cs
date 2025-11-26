@@ -67,7 +67,7 @@ namespace Rossoforge.Extensions
         /// </summary>
         /// <param name="layer">layer index</param>
         /// <returns></returns>
-        public static LayerMask LayerToMask(int layer)
+        public static LayerMask LayerToMask(this LayerMask mask, int layer)
         {
             return 1 << layer;
         }
