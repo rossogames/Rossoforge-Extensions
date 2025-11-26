@@ -61,5 +61,15 @@ namespace Rossoforge.Extensions
             }
             return names.ToArray();
         }
+
+        /// <summary>
+        /// Converts a layer index (integer) into a corresponding LayerMask
+        /// </summary>
+        /// <param name="layer">layer index</param>
+        /// <returns></returns>
+        public static LayerMask LayerToMask(int layer)
+        {
+            return 1 << layer;
+        }
     }
 }
