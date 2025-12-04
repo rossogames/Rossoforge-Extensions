@@ -1,6 +1,6 @@
 {
   "name": "com.rossogames.rossoforge-extensions",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "displayName": "Rossoforge-Extensions",
   "description": "Commonly used extension methods",
   "unity": "2025.0",
