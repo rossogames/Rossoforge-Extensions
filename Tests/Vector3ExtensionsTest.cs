@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.TestTools.Utils;
 
 namespace Rossoforge.Extensions.Tests
 {
@@ -49,6 +50,41 @@ namespace Rossoforge.Extensions.Tests
             Vector3 target = new Vector3(3f, 4f, 0f);
             float result = v.Distance(target);
             Assert.AreEqual(5f, result);
+        }
+
+        [Test]
+        public void Direction_ReturnsNormalizedVectorPointingFromInputToTarget()
+        {
+            Vector3 input = Vector3.zero;
+            Vector3 target = new Vector3(0, 0, 10);
+
+            Vector3 result = input.Direction(target);
+
+            Assert.That(result, Is.EqualTo(Vector3.forward).Using(Vector3EqualityComparer.Instance));
+            Assert.That(result.magnitude, Is.EqualTo(1f).Within(1e-5f)); // Verifica que esté normalizado
+        }
+
+        [Test]
+        public void Direction_ReturnsNormalizedVectorInArbitraryDirection()
+        {
+            Vector3 input = new Vector3(1, 2, 3);
+            Vector3 target = new Vector3(4, 6, 3);
+
+            Vector3 result = input.Direction(target);
+
+            Vector3 expected = (target - input).normalized;
+            Assert.That(result, Is.EqualTo(expected).Using(Vector3EqualityComparer.Instance));
+        }
+
+        [Test]
+        public void Direction_WhenInputEqualsTarget_ReturnsZeroVector()
+        {
+            Vector3 input = new Vector3(5, 5, 5);
+            Vector3 target = new Vector3(5, 5, 5);
+
+            Vector3 result = input.Direction(target);
+
+            Assert.That(result, Is.EqualTo(Vector3.zero));
         }
 
         [Test]

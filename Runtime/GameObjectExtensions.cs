@@ -84,5 +84,15 @@ namespace Rossoforge.Extensions
             }
             return result;
         }
+
+        /// <summary>
+        /// Returns a <see cref="LayerMask"/> representing the GameObject's layer.
+        /// </summary>
+        /// <param name="go"></param>
+        /// <returns></returns>
+        public static LayerMask GetLayerMask(this GameObject go)
+        {
+            return (1 << go.layer);
+        }
     }
 }
