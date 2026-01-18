@@ -163,7 +163,7 @@ namespace Rossoforge.Extensions
         {
             value = default;
 
-            if (source == null || 
+            if (source == null ||
                 x < 0 || x >= width ||
                 y < 0 || y >= height ||
                 z < 0 || z >= depth)
