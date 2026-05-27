@@ -172,5 +172,45 @@ namespace Rossoforge.Extensions
             value = source[z * width * height + y * width + x];
             return true;
         }
+
+        /// <summary>
+        /// Removes the first element of the list.
+        /// Returns true if it was successfully removed, or false if the list was empty.
+        /// </summary>
+        public static bool RemoveFirst<T>(this IList<T> list)
+        {
+            if (list == null) throw new ArgumentNullException(nameof(list));
+
+            if (list.IsReadOnly)
+                throw new NotSupportedException("The list is read-only and cannot be modified.");
+
+            if (list.Count > 0)
+            {
+                list.RemoveAt(0);
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Removes the last element of the list.
+        /// Returns true if it was successfully removed, or false if the list was empty.
+        /// </summary>
+        public static bool RemoveLast<T>(this IList<T> list)
+        {
+            if (list == null) throw new ArgumentNullException(nameof(list));
+
+            if (list.IsReadOnly)
+                throw new NotSupportedException("The list is read-only and cannot be modified.");
+
+            if (list.Count > 0)
+            {
+                list.RemoveAt(list.Count - 1);
+                return true;
+            }
+
+            return false;
+        }
     }
 }
