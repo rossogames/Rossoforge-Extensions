@@ -227,5 +227,103 @@ namespace Rossoforge.Extensions.Tests
             Assert.AreEqual(default(int), value);
         }
 
+        [Test]
+        public void RemoveFirst_WhenListHasElements_RemovesFirstElementAndReturnsTrue()
+        {
+            // Arrange
+            IList<string> list = new List<string> { "First", "Middle", "Last" };
+
+            // Act
+            bool result = list.RemoveFirst();
+
+            // Assert
+            Assert.That(result, Is.True);
+            Assert.That(list.Count, Is.EqualTo(2));
+            Assert.That(list[0], Is.EqualTo("Middle"));
+        }
+
+        [Test]
+        public void RemoveFirst_WhenListIsEmpty_ReturnsFalse()
+        {
+            // Arrange
+            IList<string> emptyList = new List<string>();
+
+            // Act
+            bool result = emptyList.RemoveFirst();
+
+            // Assert
+            Assert.That(result, Is.False);
+            Assert.That(emptyList.Count, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void RemoveFirst_WhenListIsNull_ThrowsArgumentNullException()
+        {
+            // Arrange
+            IList<string> nullList = null;
+
+            // Act & Assert
+            Assert.Throws<ArgumentNullException>(() => nullList.RemoveFirst());
+        }
+
+        [Test]
+        public void RemoveFirst_WhenListIsReadOnly_ThrowsNotSupportedException()
+        {
+            // Arrange
+            IList<string> readOnlyList = new ArraySegment<string>(new[] { "One", "Two" });
+
+            // Act & Assert
+            Assert.Throws<NotSupportedException>(() => readOnlyList.RemoveFirst());
+        }
+        
+        [Test]
+        public void RemoveLast_WhenListHasElements_RemovesLastElementAndReturnsTrue()
+        {
+            // Arrange
+            IList<string> list = new List<string> { "First", "Middle", "Last" };
+
+            // Act
+            bool result = list.RemoveLast();
+
+            // Assert
+            Assert.That(result, Is.True);
+            Assert.That(list.Count, Is.EqualTo(2));
+            Assert.That(list[list.Count - 1], Is.EqualTo("Middle"));
+        }
+
+        [Test]
+        public void RemoveLast_WhenListIsEmpty_ReturnsFalse()
+        {
+            // Arrange
+            IList<string> emptyList = new List<string>();
+
+            // Act
+            bool result = emptyList.RemoveLast();
+
+            // Assert
+            Assert.That(result, Is.False);
+            Assert.That(emptyList.Count, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void RemoveLast_WhenListIsNull_ThrowsArgumentNullException()
+        {
+            // Arrange
+            IList<string> nullList = null;
+
+            // Act & Assert
+            Assert.Throws<ArgumentNullException>(() => nullList.RemoveLast());
+        }
+
+        [Test]
+        public void RemoveLast_WhenListIsReadOnly_ThrowsNotSupportedException()
+        {
+            // Arrange
+            IList<string> readOnlyList = new ArraySegment<string>(new[] { "One", "Two" });
+
+            // Act & Assert
+            Assert.Throws<NotSupportedException>(() => readOnlyList.RemoveLast());
+        }
+
     }
 }
