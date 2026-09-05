@@ -275,7 +275,7 @@ namespace Rossoforge.Extensions.Tests
             // Act & Assert
             Assert.Throws<NotSupportedException>(() => readOnlyList.RemoveFirst());
         }
-        
+
         [Test]
         public void RemoveLast_WhenListHasElements_RemovesLastElementAndReturnsTrue()
         {
